@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 const Home = () => {
-  const id = 1234567890;
   const [counter, setCounter] = useState(0);
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -27,8 +26,29 @@ const Home = () => {
 
       <Link to={`/offer/${id}`}>Aller sur Offer</Link> */}
       </div>
-
-      <div className="home-card-wrapper"></div>
+      <div className="home-card-wrapper">
+        {data.offers.map((offer, index) => {
+          return (
+            <Link
+              to={`/offer/${offer._id}`}
+              className="card-container"
+              key={index}
+            >
+              <div className="card-avatar-username">
+                <span>{offer.owner.account.username}</span>
+              </div>
+              <div>
+                <img src={offer.product_image.url} alt="offer" />
+                <div className="card-price-size-brand">
+                  <span>{offer.product_price}€</span>
+                  <span>{offer.product_details[1].TAILLE}</span>
+                  <span>{offer.product_details[0].MARQUE}</span>
+                </div>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
     </>
   );
 };
