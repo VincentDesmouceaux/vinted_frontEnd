@@ -22,6 +22,68 @@ div {
 .header-logo {
   cursor: pointer;
 }
+.search-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.button-signup {
+  margin-right: 20px;
+}
+.button-login-signup {
+  background-color: #fff;
+  color: #2cb1ba;
+}
+.header-button {
+  border: 1px solid #2cb1ba;
+  border-radius: 5px;
+  font-family: Maison Neue;
+  font-size: 12px;
+  height: 30px;
+  outline: none;
+  width: 115px;
+}
+button,
+input {
+  outline: none;
+}
+button,
+input[type="checkbox"] {
+  cursor: pointer;
+}
+button {
+  appearance: auto;
+  writing-mode: horizontal-tb !important;
+  font-style: ;
+  font-variant-ligatures: ;
+  font-variant-caps: ;
+  font-variant-numeric: ;
+  font-variant-east-asian: ;
+  font-weight: ;
+  font-stretch: ;
+  font-size: ;
+  font-family: ;
+  text-rendering: auto;
+  color: buttontext;
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: default;
+  box-sizing: border-box;
+  background-color: buttonface;
+  margin: 0em;
+  padding: 1px 6px;
+  border-width: 2px;
+  border-style: outset;
+  border-color: buttonborder;
+  border-image: initial;
+}
 
 .header-logo {
   height: 40px;
@@ -34,4 +96,74 @@ div {
 
 img {
   pointer-events: none;
+}
+
+.button-login-signup {
+  background-color: #fff;
+  color: #2cb1ba;
+}
+
+.button-sold {
+  background-color: #2cb1ba;
+  color: #fff;
+}
+
+.home-hero-bg-img {
+  background-image: url("../src/img/vinted.jpg");
+  background-position: 50%;
+  background-size: cover;
+  height: 455px;
+  position: relative;
+  width: 100%;
+}
+.search-input {
+  background-color: #f5f6f7;
+  border: none;
+  border-radius: 5px;
+  font-family: Maison Neue;
+  font-size: 16px;
+  height: 37px;
+  outline: none;
+  padding-left: 40px;
+  width: 590px;
+}
+
+input {
+  writing-mode: horizontal-tb !important;
+  font-style: ;
+  font-variant-ligatures: ;
+  font-variant-caps: ;
+  font-variant-numeric: ;
+  font-variant-east-asian: ;
+  font-weight: ;
+  font-stretch: ;
+  font-size: ;
+  font-family: ;
+  text-rendering: auto;
+  color: fieldtext;
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: auto;
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  background-color: field;
+  margin: 0em;
+  padding: 1px 2px;
+  border-width: 2px;
+  border-style: inset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+}
+
+.home-card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px auto auto;
+  width: 1280px;
 }
