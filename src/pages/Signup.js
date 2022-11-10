@@ -7,42 +7,55 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState();
-const handleSubmit = 
-  const { token } = useParams();
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.post(
-          `https://site--test-backend--c7br8w6v87r6.code.run/user/${token}`
-        );
-
-        setData(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-    fetchData();
-  }, [token]);
-
-  return isLoading ? (
-    <p>Loading ...</p>
-  ) : (
+  return (
     <form
-      onSubmit={(event) => {
+      onSubmit={async (event) => {
         event.preventDefault();
-        navigate("/");
+        await axios.post(
+          `https://site--test-backend--c7br8w6v87r6.code.run/user/signup`,
+          {
+            username: { username },
+            email: { email },
+            password: { password },
+          }
+        );
       }}
     >
       <h2>S'inscire</h2>
-      <input type="text"  name="username" placeholder="Nom d'utilisateur" state={username} setState={setUsername}/>
-      <input type="text" name = "email"  placeholder="email"
-      state={email} setState={setEmail}/>
-      <input type="text" name="password" placeholder="Mot de passe" state ={password} setPassword={setPassword} />
+      <input
+        type="text"
+        name="username"
+        placeholder="Nom d'utilisateur"
+        state={username}
+        setState={setUsername}
+        value={state}
+        onChange={(event) => {
+          setUsername(event.target.value);
+        }}
+      />
+      <input
+        type="text"
+        name="email"
+        placeholder="email"
+        state={email}
+        setState={setEmail}
+        value={state}
+        onChange={(event) => {
+          setEmail(event.target.value);
+        }}
+      />
+      <input
+        type="text"
+        name="password"
+        placeholder="Mot de passe"
+        state={password}
+        setPassword={setPassword}
+        value={state}
+        onChange={(event) => {
+          setPassword(event.target.value);
+        }}
+      />
 
       <input type="submit" value="Register" />
     </form>
