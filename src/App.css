@@ -43,15 +43,15 @@ div {
   outline: none;
   width: 115px;
 }
-button,
+.button,
 input {
   outline: none;
 }
-button,
+.button,
 input[type="checkbox"] {
   cursor: pointer;
 }
-button {
+.button {
   appearance: auto;
   writing-mode: horizontal-tb !important;
 
@@ -194,4 +194,28 @@ input {
   margin: 0 auto;
   padding: 30px;
   width: 1280px;
+}
+
+.offer-pictures {
+  height: 600px;
+  object-fit: cover;
+}
+
+img {
+  pointer-events: none;
+}
+
+.offer-infos {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+  width: 320px;
+}
+
+.offer-price {
+  color: #111;
+  font-size: 24px;
+  line-height: 32px;
 }

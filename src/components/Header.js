@@ -10,13 +10,16 @@ const Header = () => {
       <div className="search-container">
         <input
           type="text"
-          class="search-input"
+          className="search-input"
           placeholder="Recherche des articles"
         />
         <div>
-          <button className="header-button button-login-signup button-signup">
+          <Link
+            to={`/user/signup`}
+            className="header-button button-login-signup button-signup"
+          >
             S'inscrire
-          </button>
+          </Link>
           <button className="header-button button-login-signup">
             Se connecter
           </button>

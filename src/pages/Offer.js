@@ -10,7 +10,7 @@ const Offer = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        "https://site--test-backend--c7br8w6v87r6.code.run/offers"
+        "https://site--test-backend--c7br8w6v87r6.code.run/offer/" + id
       );
       setData(response.data);
       setIsLoading(false);
@@ -24,7 +24,15 @@ const Offer = () => {
     <div className="offer-body">
       <div className="offer-container">
         <div className="offer-pictures">
-          <img src={_id.product_image.url} alt="" />
+          <img
+            src={data.product_image.url}
+            alt="Air Max 90, très peu portées"
+          />
+        </div>
+        <div className="offer-infos">
+          <div>
+            <span className="offer-price"> {data.product_price} €</span>
+          </div>
         </div>
       </div>
     </div>
