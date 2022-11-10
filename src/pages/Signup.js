@@ -27,9 +27,8 @@ const Signup = () => {
         type="text"
         name="username"
         placeholder="Nom d'utilisateur"
-        state={username}
         setState={setUsername}
-        value={state}
+        value={username}
         onChange={(event) => {
           setUsername(event.target.value);
         }}
@@ -38,9 +37,8 @@ const Signup = () => {
         type="text"
         name="email"
         placeholder="email"
-        state={email}
         setState={setEmail}
-        value={state}
+        value={email}
         onChange={(event) => {
           setEmail(event.target.value);
         }}
@@ -49,9 +47,8 @@ const Signup = () => {
         type="text"
         name="password"
         placeholder="Mot de passe"
-        state={password}
         setPassword={setPassword}
-        value={state}
+        value={password}
         onChange={(event) => {
           setPassword(event.target.value);
         }}
