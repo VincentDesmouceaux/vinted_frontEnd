@@ -43,15 +43,15 @@ div {
   outline: none;
   width: 115px;
 }
-.button,
+button,
 input {
   outline: none;
 }
-.button,
+button,
 input[type="checkbox"] {
   cursor: pointer;
 }
-.button {
+button {
   appearance: auto;
   writing-mode: horizontal-tb !important;
 
@@ -218,4 +218,76 @@ img {
   color: #111;
   font-size: 24px;
   line-height: 32px;
+}
+
+.signup-container,
+.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-container {
+  justify-content: center;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.signup-form {
+  margin: auto;
+  width: 275px;
+}
+
+.signup-form > input {
+  border: none;
+  border-bottom: 1px solid #fcced3;
+  height: 35px;
+  margin-bottom: 20px;
+}
+button,
+input {
+  outline: none;
+}
+
+input[type="text" i] {
+  padding: 1px 2px;
+}
+
+input {
+  writing-mode: horizontal-tb !important;
+
+  text-rendering: auto;
+  color: fieldtext;
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: auto;
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  background-color: field;
+  margin: 0em;
+  padding: 1px 2px;
+  border-width: 2px;
+  border-style: inset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+}
+
+.signup-form button {
+  background-color: #2cb1ba;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  height: 45px;
+  margin-top: 20px;
+  outline: none;
+  width: 100%;
+}
+.cursor {
+  cursor: pointer;
 }

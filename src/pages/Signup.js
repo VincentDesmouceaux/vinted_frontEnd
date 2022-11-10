@@ -9,53 +9,58 @@ const Signup = () => {
   const [password, setPassword] = useState("");
 
   return (
-    <form
-      onSubmit={async (event) => {
-        event.preventDefault();
-        await axios.post(
-          `https://site--test-backend--c7br8w6v87r6.code.run/user/signup`,
-          {
-            username: { username },
-            email: { email },
-            password: { password },
-          }
-        );
-      }}
-    >
-      <h2>S'inscire</h2>
-      <input
-        type="text"
-        name="username"
-        placeholder="Nom d'utilisateur"
-        setState={setUsername}
-        value={username}
-        onChange={(event) => {
-          setUsername(event.target.value);
+    <div className="signup-container">
+      <form
+        className="signup-form"
+        onSubmit={async (event) => {
+          event.preventDefault();
+          await axios.post(
+            `https://site--test-backend--c7br8w6v87r6.code.run/user/signup`,
+            {
+              username: username,
+              email: email,
+              password: password,
+            }
+          );
         }}
-      />
-      <input
-        type="text"
-        name="email"
-        placeholder="email"
-        setState={setEmail}
-        value={email}
-        onChange={(event) => {
-          setEmail(event.target.value);
-        }}
-      />
-      <input
-        type="text"
-        name="password"
-        placeholder="Mot de passe"
-        setPassword={setPassword}
-        value={password}
-        onChange={(event) => {
-          setPassword(event.target.value);
-        }}
-      />
+      >
+        <h2>S'inscire</h2>
+        <input
+          type="text"
+          name="username"
+          placeholder="Nom d'utilisateur"
+          setState={setUsername}
+          value={username}
+          onChange={(event) => {
+            setUsername(event.target.value);
+          }}
+        />
+        <input
+          type="text"
+          name="email"
+          placeholder="email"
+          setState={setEmail}
+          value={email}
+          onChange={(event) => {
+            setEmail(event.target.value);
+          }}
+        />
+        <input
+          type="text"
+          name="password"
+          placeholder="Mot de passe"
+          setPassword={setPassword}
+          value={password}
+          onChange={(event) => {
+            setPassword(event.target.value);
+          }}
+        />
 
-      <input type="submit" value="Register" />
-    </form>
+        <button className="cursor" type="submit" value="Register">
+          S'inscrire
+        </button>
+      </form>
+    </div>
   );
 };
 
