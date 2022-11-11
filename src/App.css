@@ -242,6 +242,43 @@ img {
   margin: auto;
   width: 275px;
 }
+.signup-login-error-message {
+  color: red;
+  font-size: 9px;
+}
+.checkbox-container > div {
+  display: flex;
+}
+
+.checkbox-container span {
+  color: #666;
+}
+
+.checkbox-container > p {
+  color: #999;
+  font-size: 12px;
+  text-align: left;
+}
+
+input[type="checkbox" i] {
+  background-color: initial;
+  cursor: default;
+  appearance: auto;
+  box-sizing: border-box;
+  margin: 3px 3px 3px 4px;
+  padding: initial;
+  border: initial;
+}
+.signup-form input[type="checkbox"] {
+  margin-right: 20px;
+  -webkit-transform: scale(2);
+  transform: scale(2);
+}
+
+.checkbox-container {
+  margin-top: 20px;
+  padding: 10px;
+}
 
 .signup-form > input {
   border: none;
