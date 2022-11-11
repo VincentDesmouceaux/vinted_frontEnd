@@ -9,7 +9,7 @@ const Signup = ({ handleToken }) => {
   const navigate = useNavigate();
   const [newsletter, setNewsletter] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
+  const [errorMessage2, setErrorMessage2] = useState("");
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
@@ -40,6 +40,14 @@ const Signup = ({ handleToken }) => {
         setErrorMessage("Veuillez utiliser un email non déjà utilisé :)");
       }
 
+      if (error.response?.status === 402) {
+        setErrorMessage("Le username n'est pas renseigné");
+      }
+
+      if (error.response?.status === 403) {
+        setErrorMessage2("Le mail n'est pas renseigné");
+      }
+
       if (error.response?.data.message === "Missing parameters") {
         setErrorMessage("Veuillez remplir tous les champs");
       }
@@ -50,33 +58,31 @@ const Signup = ({ handleToken }) => {
     <div className="signup-container">
       <form className="signup-form" onSubmit={handleSubmit}>
         <h2>S'inscrire</h2>
+        <span className="signup-login-error-message">{errorMessage}</span>
         <input
           type="text"
           name="username"
           placeholder="Nom d'utilisateur"
-          setState={setUsername}
           value={username}
           onChange={(event) => {
             setUsername(event.target.value);
           }}
         />
-        <span className="signup-login-error-message">{errorMessage}</span>
+        <span className="signup-login-error-message">{errorMessage2}</span>
         <input
-          type="text"
+          type="email"
           name="email"
           placeholder="email"
-          setState={setEmail}
           value={email}
           onChange={(event) => {
             setEmail(event.target.value);
           }}
         />
-        <span className="signup-login-error-message">{errorMessage}</span>
+
         <input
           type="text"
           name="password"
           placeholder="Mot de passe"
-          setPassword={setPassword}
           value={password}
           onChange={(event) => {
             setPassword(event.target.value);

@@ -5,7 +5,7 @@ import axios from "axios";
 const Login = ({ handleToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   return (
@@ -15,18 +15,28 @@ const Login = ({ handleToken }) => {
         className="signup-form"
         onSubmit={async (event) => {
           event.preventDefault();
+          try {
+            const response = await axios.post(
+              "https://site--test-backend--c7br8w6v87r6.code.run/user/login",
+              {
+                email,
+                password,
+              }
+            );
+            console.log(response.data);
 
-          const response = await axios.post(
-            `https://site--test-backend--c7br8w6v87r6.code.run/user/login`,
-            {
-              email: email,
-              password: password,
+            if (response.data.token) {
+              handleToken(response.data.token);
+
+              navigate("/");
             }
-          );
-
-          handleToken(response.data.token);
-
-          navigate("/");
+          } catch (error) {
+            console.log(error.message);
+            console.log(error.response.data);
+            if (error.response?.status === 405) {
+              setErrorMessage("Mauvais email et/ou mot de passe  ");
+            }
+          }
         }}
       >
         <input
@@ -45,6 +55,7 @@ const Login = ({ handleToken }) => {
             setPassword(event.target.value);
           }}
         />
+        <span className="signup-login-error-message">{errorMessage}</span>
         <button type="submit"> Se connecter</button>
       </form>
       <Link to={`/user/signup`}> Pas encore de compte ? Inscris-toi !</Link>
