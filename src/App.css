@@ -55,6 +55,160 @@ button,
 input[type="checkbox"] {
   cursor: pointer;
 }
+.boxfilter {
+  margin-top: 25px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+.boxfilter2 {
+  margin-right: 10px;
+}
+.checkbox {
+  margin-right: 25px;
+}
+.checkbox input[name="price"] {
+  display: none;
+}
+
+button,
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.checkbox .wrapper {
+  align-items: center;
+  background-color: #2cb1ba;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  height: 20px;
+  outline: none;
+  width: 42px;
+}
+.checkbox .knob,
+.home-loader {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.checkbox .knob {
+  background-color: #fff;
+  border: 1px solid #666;
+  border-radius: 100%;
+  font-weight: 700;
+  height: 16px;
+  left: 0;
+  position: relative;
+  transition: left 0.1s ease-in-out 0s;
+  width: 16px;
+}
+
+.checkbox .knob {
+  background-color: #fff;
+  border: 1px solid #666;
+  border-radius: 100%;
+  font-weight: 700;
+  height: 16px;
+  left: 0;
+  position: relative;
+  transition: left 0.1s ease-in-out 0s;
+  width: 16px;
+}
+.prixentre {
+  margin-right: 10px;
+}
+
+.filterbor {
+  height: 5px;
+  width: 100%;
+  border-radius: 4px;
+  background: linear-gradient(
+    to right,
+    rgb(204, 204, 204) 0%,
+    rgb(204, 204, 204) 2%,
+    rgb(44, 177, 186) 2%,
+    rgb(44, 177, 186) 20%,
+    rgb(204, 204, 204) 20%,
+    rgb(204, 204, 204) 100%
+  );
+  align-self: center;
+}
+
+.transform {
+  transform: scale(1);
+  cursor: inherit;
+  height: 36px;
+  display: flex;
+  width: 50%;
+}
+
+.tabmin {
+  position: absolute;
+  z-index: 1;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: rgb(44, 177, 186);
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(16.78px, -6px);
+  border: 1px solid white;
+}
+
+.positionmin {
+  position: absolute;
+  top: -28px;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  font-family: "Maison Neue";
+  padding: 4px;
+  border-radius: 4px;
+  background-color: rgb(44, 177, 186);
+}
+
+.tabmax {
+  position: absolute;
+  z-index: 0;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: rgb(44, 177, 186);
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(83.14px, -6px);
+  border: 1px solid white;
+}
+
+.positionmax {
+  position: absolute;
+  z-index: 0;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: rgb(44, 177, 186);
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(83.14px, -6px);
+  border: 1px solid white;
+}
+
 button {
   appearance: auto;
   writing-mode: horizontal-tb !important;

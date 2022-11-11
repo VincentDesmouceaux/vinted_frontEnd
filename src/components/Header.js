@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import vinted from "/Users/vincentdesmont/LeReacteur/React/jour8/exercice/vinted/src/img/Vinted_logo.png";
+import axios from "axios";
+import { useState } from "react";
 
 const Header = ({ token, handleToken }) => {
   return (
@@ -15,6 +17,21 @@ const Header = ({ token, handleToken }) => {
           className="search-input"
           placeholder="Recherche des articles"
         />
+        <div>
+          <div className="boxfilter">
+            <span className="boxfilter2"> Trier par prix : </span>
+            <span className="checkbox">
+              <input type="checkbox" name="price" />
+              <div className="wrapper">
+                <div className="knob">
+                  <span>up</span>
+                </div>
+              </div>
+            </span>
+            <span className="prixentre"> Prix entre :</span>
+            <div className="transform"></div>
+          </div>
+        </div>
       </div>
       <div className="decalage">
         {token ? (
