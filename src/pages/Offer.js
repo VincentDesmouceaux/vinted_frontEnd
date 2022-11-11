@@ -45,6 +45,15 @@ const Offer = () => {
               })}
             </ul>
           </div>
+          <div className="divider"></div>
+          <div className="offer-content">
+            <p className="name">{data.product_name}</p>
+            <p className="description">{data.description}</p>
+            <div className="offer-avatar-username">
+              <span>{data.owner.account.username}</span>
+            </div>
+          </div>
+          <button>Acheter</button>
         </div>
       </div>
     </div>

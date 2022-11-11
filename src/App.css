@@ -305,6 +305,13 @@ a {
   margin-top: 20px;
   text-decoration: none;
 }
+.card-price-size-brand span:first-child {
+  font-size: 14px;
+}
+.card-price-size-brand span:not(:first-child) {
+  color: #999;
+  font-size: 12px;
+}
 
 .signup-container,
 .signup-form {
@@ -362,4 +369,45 @@ h2 {
 .offer-list span:nth-child(2n) {
   color: #666;
   font-weight: 700;
+}
+
+.offer-infos .divider {
+  background: hsla(0, 2%, 11%, 0.1);
+  display: block;
+  height: 1px;
+  width: 100%;
+}
+
+.offer-content .name {
+  font-weight: 700;
+}
+
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.offer-content .description {
+  color: #666;
+}
+
+.offer-avatar-username {
+  align-items: center;
+  display: flex;
+}
+
+.offer-infos button {
+  background: #09b1ba;
+  border: 1px solid #09b1ba;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  height: 36px;
+  line-height: 36px;
+  margin-top: 32px;
+  padding: 0 16px;
+  width: 100%;
 }
