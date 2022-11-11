@@ -25,6 +25,7 @@ const Offer = () => {
       <div className="offer-container">
         <div className="offer-pictures">
           <img
+            className="offer-picture"
             src={data.product_image.url}
             alt="Air Max 90, très peu portées"
           />
@@ -32,6 +33,17 @@ const Offer = () => {
         <div className="offer-infos">
           <div>
             <span className="offer-price"> {data.product_price} €</span>
+            <ul className="offer-list">
+              {data.product_details.map((detail, index) => {
+                const objectKey = Object.keys(detail)[0];
+
+                return (
+                  <li key={index}>
+                    <span>{objectKey}</span> <span> {detail[objectKey]}</span>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </div>
       </div>

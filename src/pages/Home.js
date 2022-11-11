@@ -21,11 +21,7 @@ const Home = () => {
     <p>Loading ...</p>
   ) : (
     <>
-      <div className="home-hero-bg-img ">
-        {/* <Link to="/details">Aller vers la page details</Link>
-
-      <Link to={`/offer/${id}`}>Aller sur Offer</Link> */}
-      </div>
+      <div className="home-hero-bg-img "></div>
       <div className="home-card-wrapper">
         {data.offers.map((offer, index) => {
           return (

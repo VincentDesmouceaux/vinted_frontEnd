@@ -2,11 +2,12 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   return (
     <div className="signup-container">
@@ -22,9 +23,10 @@ const Signup = () => {
               password: password,
             }
           );
+          navigate("/");
         }}
       >
-        <h2>S'inscire</h2>
+        <h2>S'inscrire</h2>
         <input
           type="text"
           name="username"
@@ -60,6 +62,7 @@ const Signup = () => {
           S'inscrire
         </button>
       </form>
+      <Link to={`/user/signup`}> Tu as déjà un compte ? Connecte-toi !</Link>
     </div>
   );
 };
