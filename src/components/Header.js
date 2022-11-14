@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
 import vinted from "/Users/vincentdesmont/LeReacteur/React/jour8/exercice/vinted/src/img/Vinted_logo.png";
-import axios from "axios";
-import { useState } from "react";
 
-const Header = ({ token, handleToken }) => {
+const Header = ({ token, handleToken, search, setSearch }) => {
   return (
     <div className="header-container">
       <Link to={"/"}>
@@ -13,9 +11,13 @@ const Header = ({ token, handleToken }) => {
       </Link>
       <div className="search-container">
         <input
+          value={search}
           type="text"
           className="search-input"
           placeholder="Recherche des articles"
+          onChange={(event) => {
+            setSearch(event.target.value);
+          }}
         />
         <div>
           <div className="boxfilter">
@@ -60,8 +62,11 @@ const Header = ({ token, handleToken }) => {
           </>
         )}
       </div>
-
-      <button className="header-button button-sold">Vends tes articles</button>
+      <Link to={`/publish`}>
+        <button className="header-button button-sold">
+          Vends tes articles
+        </button>
+      </Link>
     </div>
   );
 };

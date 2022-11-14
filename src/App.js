@@ -9,12 +9,13 @@ import Details from "./pages/Details";
 import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Publish from "./pages/Publish";
 
 // Components
 import Header from "./components/Header";
 
 function App() {
-  const [title, setTitle] = useState();
+  const [search, setSearch] = useState("");
 
   const [token, setToken] = useState(Cookies.get("token") || null);
   const handleToken = (token) => {
@@ -32,16 +33,20 @@ function App() {
         <Header
           token={token}
           handleToken={handleToken}
-          title={title}
-          setTitle={setTitle}
+          search={search}
+          setSearch={setSearch}
         />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home search={search} />} />
           <Route path="/details" element={<Details />} />
           <Route path="/offer/:id" element={<Offer />} />
           <Route
             path="/user/signup"
             element={<Signup handleToken={handleToken} />}
+          />
+          <Route
+            path="/publish"
+            element={<Publish handleToken={handleToken} />}
           />
           <Route path="/login" element={<Login handleToken={handleToken} />} />
         </Routes>
