@@ -62,11 +62,20 @@ const Header = ({ token, handleToken, search, setSearch }) => {
           </>
         )}
       </div>
-      <Link to={`/publish`}>
-        <button className="header-button button-sold">
-          Vends tes articles
-        </button>
-      </Link>
+      {token ? (
+        <Link to={`/publish`}>
+          <button
+            className="header-button button-sold"
+            onClick={() => {
+              handleToken(null);
+            }}
+          >
+            Vends tes articles
+          </button>
+        </Link>
+      ) : (
+        <Link to={`/login`}></Link>
+      )}
     </div>
   );
 };

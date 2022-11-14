@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Publish = ({ token, handleToken }) => {
+  console.log(token);
   const [picture, setPicture] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -13,6 +15,7 @@ const Publish = ({ token, handleToken }) => {
   const [price, setPrice] = useState("");
   const [newsletter, setNewsletter] = useState(false);
   const [data, setData] = useState();
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -41,9 +44,10 @@ const Publish = ({ token, handleToken }) => {
         }
       );
       setData(response.data);
+      navigate("/");
       // console.log(response.data);
     } catch (error) {
-      console.log(error.message);
+      console.log(error.response.data);
     }
   };
 
