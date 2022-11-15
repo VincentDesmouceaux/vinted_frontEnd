@@ -29,21 +29,30 @@ const Header = ({
         <div>
           <div className="boxfilter">
             <span className="boxfilter2"> Trier par prix : </span>
-            <span className="checkbox">
-              <input
+            <div className="checkbox">
+              {/* <input
                 type="checkbox"
                 name="price"
                 value={sortPrice}
                 onChange={(event) => {
+                  console.log(event.target.value);
                   setSortPrice(event.target.value);
                 }}
-              />
+              /> */}
               <div className="wrapper">
-                <div className="knob">
+                <div
+                  className="knob"
+                  type="checkbox"
+                  name="price"
+                  value={sortPrice}
+                  onChange={() => {
+                    setSortPrice(!sortPrice);
+                  }}
+                >
                   <span>up</span>
                 </div>
               </div>
-            </span>
+            </div>
             <span className="prixentre"> Prix entre :</span>
             <div className="transform"></div>
           </div>

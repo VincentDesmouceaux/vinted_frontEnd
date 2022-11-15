@@ -10,13 +10,14 @@ import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Publish from "./pages/Publish";
+import Payment from "./pages/Payment";
 
 // Components
 import Header from "./components/Header";
 
 function App() {
   const [search, setSearch] = useState("");
-  const [sortPrice, setSortPrice] = useState("");
+  const [sortPrice, setSortPrice] = useState(false);
 
   const [token, setToken] = useState(Cookies.get("token") || null);
   const handleToken = (token) => {
@@ -61,6 +62,7 @@ function App() {
             }
           />
           <Route path="/login" element={<Login handleToken={handleToken} />} />
+          <Route path="/payment" element={<Payment />} />
         </Routes>
       </Router>
     </div>
