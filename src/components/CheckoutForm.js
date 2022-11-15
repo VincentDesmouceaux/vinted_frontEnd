@@ -1,8 +1,9 @@
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { useState } from "react";
+import Cookies from "js-cookie";
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ title, amount }) => {
   const stripe = useStripe();
 
   const elements = useElements();
@@ -16,7 +17,7 @@ const CheckoutForm = () => {
       const cardElement = elements.getElement(CardElement);
 
       const stripeResponse = await stripe.createToken(cardElement, {
-        name: "L'id de l'acheteur",
+        name: Cookies.get("token"),
       });
 
       const stripeToken = stripeResponse.token.id;
@@ -25,6 +26,8 @@ const CheckoutForm = () => {
         "https://site--test-backend--c7br8w6v87r6.code.run/payment",
         {
           stripeToken: stripeToken,
+          title: title,
+          amount: amount,
         }
       );
 
@@ -36,19 +39,20 @@ const CheckoutForm = () => {
       }
       console.log(response.data);
     } catch (error) {
+      console.log(error.response.data);
       console.log(error.message);
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <CardElement />
+      <CardElement className=".StripeElement" />
       {isLoading ? (
         <p>Loading...</p>
       ) : completed ? (
-        <p>Paiement effectué</p>
+        <p>Merci pour votre achat.</p>
       ) : (
-        <input type="submit" />
+        <button type="submit">Pay</button>
       )}
     </form>
   );
