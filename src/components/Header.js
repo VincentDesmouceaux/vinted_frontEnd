@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import vinted from "/Users/vincentdesmont/LeReacteur/React/jour8/exercice/vinted/src/img/Vinted_logo.png";
+import vinted from "../img/Vinted_logo.png";
 
 const Header = ({
   token,
