@@ -211,7 +211,7 @@ const Publish = ({ token, handleToken }) => {
               </div>
             </div>
           </div>
-          <div class="form-button-div">
+          <div className="form-button-div">
             <button type="submit " className="form-validation">
               Ajouter
             </button>

@@ -35,7 +35,7 @@ function Payment() {
           <div className="divider"></div>
           <div className="content">
             <ul>
-              <li class="bold">
+              <li className="bold">
                 Total
                 <span>{price + 40 + 80} €</span>
               </li>
