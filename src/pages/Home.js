@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-const Home = ({ search }) => {
+const Home = ({ search, sortPrice }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [priceMin, setPricemin] = useState("");
+  const [priceMax, setPricemax] = useState("");
 
   useEffect(() => {
     console.log(
@@ -12,7 +14,7 @@ const Home = ({ search }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://site--test-backend--c7br8w6v87r6.code.run/offers?title=${search}`
+          `https://site--test-backend--c7br8w6v87r6.code.run/offers?title=${search}&priceMin=${priceMin}&priceMax=${priceMax}&sort=${sortPrice}`
         );
 
         setData(response.data);
@@ -22,7 +24,7 @@ const Home = ({ search }) => {
       }
     };
     fetchData();
-  }, [search]);
+  }, [search, sortPrice]);
 
   return isLoading ? (
     <p>Loading ...</p>

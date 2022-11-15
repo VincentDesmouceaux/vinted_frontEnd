@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
 import vinted from "/Users/vincentdesmont/LeReacteur/React/jour8/exercice/vinted/src/img/Vinted_logo.png";
 
-const Header = ({ token, handleToken, search, setSearch }) => {
+const Header = ({
+  token,
+  handleToken,
+  search,
+  setSearch,
+  sortPrice,
+  setSortPrice,
+}) => {
   return (
     <div className="header-container">
       <Link to={"/"}>
@@ -23,7 +30,14 @@ const Header = ({ token, handleToken, search, setSearch }) => {
           <div className="boxfilter">
             <span className="boxfilter2"> Trier par prix : </span>
             <span className="checkbox">
-              <input type="checkbox" name="price" />
+              <input
+                type="checkbox"
+                name="price"
+                value={sortPrice}
+                onChange={(event) => {
+                  setSortPrice(event.target.value);
+                }}
+              />
               <div className="wrapper">
                 <div className="knob">
                   <span>up</span>
@@ -62,20 +76,12 @@ const Header = ({ token, handleToken, search, setSearch }) => {
           </>
         )}
       </div>
-      {token ? (
-        <Link to={`/publish`}>
-          <button
-            className="header-button button-sold"
-            onClick={() => {
-              handleToken(null);
-            }}
-          >
-            Vends tes articles
-          </button>
-        </Link>
-      ) : (
-        <Link to={`/login`}></Link>
-      )}
+
+      <Link to={`/publish`}>
+        <button className="header-button button-sold">
+          Vends tes articles
+        </button>
+      </Link>
     </div>
   );
 };
