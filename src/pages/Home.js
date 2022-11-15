@@ -4,8 +4,6 @@ import axios from "axios";
 const Home = ({ search, sortPrice }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [priceMin, setPricemin] = useState("");
-  const [priceMax, setPricemax] = useState("");
 
   useEffect(() => {
     console.log(
@@ -14,7 +12,7 @@ const Home = ({ search, sortPrice }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://site--test-backend--c7br8w6v87r6.code.run/offers?title=${search}&priceMin=${priceMin}&priceMax=${priceMax}&sort=${sortPrice}`
+          `https://site--test-backend--c7br8w6v87r6.code.run/offers?title=${search}&sort=${sortPrice}`
         );
 
         setData(response.data);

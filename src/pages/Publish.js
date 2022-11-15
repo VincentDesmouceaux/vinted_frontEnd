@@ -14,7 +14,7 @@ const Publish = ({ token, handleToken }) => {
   const [city, setCity] = useState("");
   const [price, setPrice] = useState("");
   const [newsletter, setNewsletter] = useState(false);
-  const [data, setData] = useState();
+
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -32,7 +32,7 @@ const Publish = ({ token, handleToken }) => {
       formData.append("city", city);
       formData.append("price", price);
 
-      const response = await axios.post(
+      await axios.post(
         `https://site--test-backend--c7br8w6v87r6.code.run/offer/publish`,
         formData,
         {
@@ -43,7 +43,7 @@ const Publish = ({ token, handleToken }) => {
           },
         }
       );
-      setData(response.data);
+
       navigate("/");
       // console.log(response.data);
     } catch (error) {
