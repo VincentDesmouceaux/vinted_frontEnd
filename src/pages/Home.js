@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Puff } from "react-loader-spinner";
-const Home = ({ search, sortPrice }) => {
+const Home = ({ search, sortPrice, fetchRangeValues }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -15,7 +15,7 @@ const Home = ({ search, sortPrice }) => {
         const response = await axios.get(
           `https://site--test-backend--c7br8w6v87r6.code.run/offers?title=${search}&sort=${
             sortPrice ? "price-desc" : "price-asc"
-          }`
+          }&priceMin=${fetchRangeValues[0]}&priceMax=${fetchRangeValues[1]}`
         );
 
         setData(response.data);
@@ -25,7 +25,7 @@ const Home = ({ search, sortPrice }) => {
       }
     };
     fetchData();
-  }, [search, sortPrice]);
+  }, [search, sortPrice, fetchRangeValues]);
 
   return isLoading ? (
     <Puff

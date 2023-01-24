@@ -22,6 +22,7 @@ library.add(faSearch, faCheck, faRedo);
 function App() {
   const [search, setSearch] = useState("");
   const [sortPrice, setSortPrice] = useState(false);
+  const [fetchRangeValues, setFetchRangeValues] = useState([0, 10000]);
 
   const [token, setToken] = useState(Cookies.get("token") || null);
   const handleToken = (token) => {
@@ -43,11 +44,19 @@ function App() {
           setSearch={setSearch}
           sortPrice={sortPrice}
           setSortPrice={setSortPrice}
+          fetchRangeValues={fetchRangeValues}
+          setFetchRangeValues={setFetchRangeValues}
         />
         <Routes>
           <Route
             path="/"
-            element={<Home search={search} sortPrice={sortPrice} />}
+            element={
+              <Home
+                search={search}
+                sortPrice={sortPrice}
+                fetchRangeValues={fetchRangeValues}
+              />
+            }
           />
 
           <Route path="/offer/:id" element={<Offer />} />

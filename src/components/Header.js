@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import vinted from "../img/Vinted_logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate, useLocation } from "react-router-dom";
+import PriceRange from "./PriceRange";
 
 const Header = ({
   token,
@@ -10,6 +11,8 @@ const Header = ({
   setSearch,
   sortPrice,
   setSortPrice,
+  fetchRangeValues,
+  setFetchRangeValues,
 }) => {
   const navigate = useNavigate();
 
@@ -59,7 +62,7 @@ const Header = ({
                 </div>
               </span>
               <span className="prixentre"> Prix entre :</span>
-              <div className="transform"></div>
+              <PriceRange setFetchRangeValues={setFetchRangeValues} />
             </div>
           </div>
         ) : null}

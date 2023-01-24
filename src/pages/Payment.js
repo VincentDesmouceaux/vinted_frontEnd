@@ -24,11 +24,11 @@ function Payment() {
               </li>
               <li>
                 Frais protection acheteurs
-                <span>40.00€</span>
+                <span>4.00€</span>
               </li>
               <li>
                 Frais de port
-                <span>80.00€</span>
+                <span>8.00€</span>
               </li>
             </ul>
           </div>
@@ -37,7 +37,7 @@ function Payment() {
             <ul>
               <li className="bold">
                 Total
-                <span>{price + 40 + 80} €</span>
+                <span>{price + 4 + 8} €</span>
               </li>
             </ul>
           </div>
@@ -45,8 +45,8 @@ function Payment() {
             <div className="content">
               Il ne vous reste plus qu'un étape pour vous offrir
               <span className="bold"> {title} </span>.Vous allez payer
-              <span className="bold"> {price}€</span> (frais de protection et
-              frais de port inclus).
+              <span className="bold"> {price + 4 + 8}€</span> (frais de
+              protection et frais de port inclus).
               <div className="divider"></div>
             </div>
           </div>
