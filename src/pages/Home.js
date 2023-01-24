@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+// import { useNavigate } from "react-router-dom";
 import { Puff } from "react-loader-spinner";
+import tear from "../img/tear.svg";
 const Home = ({ search, sortPrice, fetchRangeValues }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  // const navigate = useNavigate();
 
   useEffect(() => {
     console.log(
@@ -40,7 +43,22 @@ const Home = ({ search, sortPrice, fetchRangeValues }) => {
     />
   ) : (
     <>
-      <div className="home-hero-bg-img "></div>
+      <div className="home-hero-bg-img ">
+        <img src={tear} alt="form" className="home-hero-forme" />
+        <div>
+          <div className="home-hero-ready">
+            Prêts à faire du tri dans vos placards ?
+            {/* <button
+              className="home-hero-ready button"
+              onClick={() => {
+                navigate("/publish");
+              }}
+            >
+              Commencer à vendre
+            </button> */}
+          </div>
+        </div>
+      </div>
       <div className="home-card-wrapper">
         {data.offers.map((offer, index) => {
           return (
