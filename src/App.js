@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 
 // Pages
 import Home from "./pages/Home";
-import Details from "./pages/Details";
+
 import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
@@ -45,7 +45,7 @@ function App() {
             path="/"
             element={<Home search={search} sortPrice={sortPrice} />}
           />
-          <Route path="/details" element={<Details />} />
+
           <Route path="/offer/:id" element={<Offer />} />
           <Route
             path="/user/signup"

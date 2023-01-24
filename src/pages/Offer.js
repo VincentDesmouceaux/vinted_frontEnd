@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Puff } from "react-loader-spinner";
 
 const Offer = () => {
   const [data, setData] = useState();
@@ -19,7 +20,16 @@ const Offer = () => {
   }, [id]);
 
   return isLoading ? (
-    <p>Loading ...</p>
+    <Puff
+      height="80"
+      width="80"
+      radius={1}
+      color="#2CB1BA"
+      ariaLabel="puff-loading"
+      wrapperStyle={{}}
+      wrapperClass="home-loader"
+      visible={true}
+    />
   ) : (
     <div className="offer-body">
       <div className="offer-container">

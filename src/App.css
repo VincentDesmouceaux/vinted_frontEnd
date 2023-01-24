@@ -86,11 +86,17 @@ input[type="checkbox"] {
   outline: none;
   width: 42px;
 }
-.checkbox .knob,
-.home-loader {
+.checkbox .knob {
   align-items: center;
   display: flex;
   justify-content: center;
+}
+
+.home-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .checkbox .knob {

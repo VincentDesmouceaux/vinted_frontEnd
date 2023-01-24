@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Puff } from "react-loader-spinner";
 const Home = ({ search, sortPrice }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -25,7 +26,16 @@ const Home = ({ search, sortPrice }) => {
   }, [search, sortPrice]);
 
   return isLoading ? (
-    <p>Loading ...</p>
+    <Puff
+      height="80"
+      width="80"
+      radius={1}
+      color="#2CB1BA"
+      ariaLabel="puff-loading"
+      wrapperStyle={{}}
+      wrapperClass="home-loader"
+      visible={true}
+    />
   ) : (
     <>
       <div className="home-hero-bg-img "></div>
