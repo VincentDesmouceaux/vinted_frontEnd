@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import vinted from "../img/Vinted_logo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Header = ({
   token,
@@ -9,13 +11,20 @@ const Header = ({
   sortPrice,
   setSortPrice,
 }) => {
+  const navigate = useNavigate();
+
+  const location = useLocation();
+
   return (
     <div className="header-container">
-      <Link to={"/"}>
-        <div>
-          <img className="header-logo" src={vinted} alt="vinted" />
-        </div>
-      </Link>
+      <div
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        <img className="header-logo" src={vinted} alt="vinted" />
+      </div>
+
       <div className="search-container">
         <input
           value={search}
@@ -26,37 +35,34 @@ const Header = ({
             setSearch(event.target.value);
           }}
         />
-        <div>
-          <div className="boxfilter">
-            <span className="boxfilter2"> Trier par prix : </span>
-            <div className="checkbox">
-              {/* <input
-                type="checkbox"
-                name="price"
-                value={sortPrice}
-                onChange={(event) => {
-                  console.log(event.target.value);
-                  setSortPrice(event.target.value);
-                }}
-              /> */}
-              <div className="wrapper">
-                <div
-                  className="knob"
+        <FontAwesomeIcon icon="search" className="search-input-icon" />
+        {location.pathname === "/" ? (
+          <div>
+            <div className="boxfilter">
+              <span className="boxfilter2"> Trier par prix : </span>
+              <span className="checkbox">
+                <input
                   type="checkbox"
+                  checked={sortPrice}
+                  onChange={() => {}}
                   name="price"
-                  value={sortPrice}
-                  onChange={() => {
+                />
+                <div
+                  className="wrapper"
+                  onClick={() => {
                     setSortPrice(!sortPrice);
                   }}
                 >
-                  <span>up</span>
+                  <div className="knob">
+                    <span>{sortPrice ? "⇣" : "⇡"}</span>
+                  </div>
                 </div>
-              </div>
+              </span>
+              <span className="prixentre"> Prix entre :</span>
+              <div className="transform"></div>
             </div>
-            <span className="prixentre"> Prix entre :</span>
-            <div className="transform"></div>
           </div>
-        </div>
+        ) : null}
       </div>
       <div className="decalage">
         {token ? (

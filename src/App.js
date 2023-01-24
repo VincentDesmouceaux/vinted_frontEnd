@@ -15,6 +15,10 @@ import Payment from "./pages/Payment";
 // Components
 import Header from "./components/Header";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faSearch, faCheck, faRedo } from "@fortawesome/free-solid-svg-icons";
+library.add(faSearch, faCheck, faRedo);
+
 function App() {
   const [search, setSearch] = useState("");
   const [sortPrice, setSortPrice] = useState(false);

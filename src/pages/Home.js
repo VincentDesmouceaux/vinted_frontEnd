@@ -8,12 +8,14 @@ const Home = ({ search, sortPrice }) => {
 
   useEffect(() => {
     console.log(
-      `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}`
+      `https://site--test-backend--c7br8w6v87r6.code.run/offers?title=${search}&sort=${sortPrice}`
     );
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://site--test-backend--c7br8w6v87r6.code.run/offers?title=${search}&sort=${sortPrice}`
+          `https://site--test-backend--c7br8w6v87r6.code.run/offers?title=${search}&sort=${
+            sortPrice ? "price-desc" : "price-asc"
+          }`
         );
 
         setData(response.data);
