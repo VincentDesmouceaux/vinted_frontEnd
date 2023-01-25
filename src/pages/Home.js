@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -62,15 +61,14 @@ const Home = ({ search, sortPrice, fetchRangeValues }) => {
       <div className="home-card-wrapper">
         {data.offers.map((offer, index) => {
           return (
-            <Link
-              to={`/offer/${offer._id}`}
-              className="card-container"
-              key={index}
-            >
-              <div className="card-avatar-username">
+            <div className="card-container" key={index}>
+              <div
+                className="card-avatar-username"
+                onClick={() => alert("Go to user profile !")}
+              >
                 <span>{offer.owner.account.username}</span>
               </div>
-              <div>
+              <div onClick={() => navigate(`/offer/${offer._id}`)}>
                 <img src={offer.product_image.url} alt="offer" />
                 <div className="card-price-size-brand">
                   <span>{offer.product_price}€</span>
@@ -78,7 +76,7 @@ const Home = ({ search, sortPrice, fetchRangeValues }) => {
                   <span>{offer.product_details[0].MARQUE}</span>
                 </div>
               </div>
-            </Link>
+            </div>
           );
         })}
       </div>
