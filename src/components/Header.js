@@ -67,33 +67,32 @@ const Header = ({
           </div>
         ) : null}
       </div>
-      <div className="decalage">
-        {token ? (
+
+      {token ? (
+        <Link to={`/login`}>
+          <button
+            className="header-button button-login-signup cursor colorred "
+            onClick={() => {
+              handleToken(null);
+            }}
+          >
+            Deconnexion
+          </button>
+        </Link>
+      ) : (
+        <>
           <Link to={`/login`}>
-            <button
-              className="header-button button-login-signup cursor colorred "
-              onClick={() => {
-                handleToken(null);
-              }}
-            >
-              Deconnexion
+            <button className="header-button button-login-signup cursor ">
+              Se connecter
             </button>
           </Link>
-        ) : (
-          <>
-            <Link to={`/login`}>
-              <button className="header-button button-login-signup cursor ">
-                Se connecter
-              </button>
-            </Link>
-            <Link to={`/user/signup`}>
-              <button className="header-button button-login-signup button-signup cursor">
-                S'inscrire
-              </button>
-            </Link>
-          </>
-        )}
-      </div>
+          <Link to={`/user/signup`}>
+            <button className="header-button button-login-signup button-signup cursor">
+              S'inscrire
+            </button>
+          </Link>
+        </>
+      )}
 
       <Link to={`/publish`}>
         <button className="header-button button-sold">
