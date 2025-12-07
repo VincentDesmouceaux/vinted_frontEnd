@@ -23,7 +23,7 @@ const CheckoutForm = ({ title, amount }) => {
       const stripeToken = stripeResponse.token.id;
 
       const response = await axios.post(
-        "https://site--test-backend--c7br8w6v87r6.code.run/payment",
+        "https://site--talented-doll--c7br8w6v87r6.code.run/payment",
         {
           stripeToken: stripeToken,
           title: title,

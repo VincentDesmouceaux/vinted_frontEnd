@@ -17,7 +17,7 @@ const Signup = ({ handleToken }) => {
       setErrorMessage("");
 
       const response = await axios.post(
-        "https://site--test-backend--c7br8w6v87r6.code.run/user/signup",
+        "https://site--talented-doll--c7br8w6v87r6.code.run/user/signup",
         {
           email: email,
           username: username,

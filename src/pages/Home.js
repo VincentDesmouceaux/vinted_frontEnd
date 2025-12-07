@@ -10,12 +10,12 @@ const Home = ({ search, sortPrice, fetchRangeValues }) => {
 
   useEffect(() => {
     console.log(
-      `https://site--test-backend--c7br8w6v87r6.code.run/offers?title=${search}&sort=${sortPrice}`
+      `https://site--talented-doll--c7br8w6v87r6.code.run/offers?title=${search}&sort=${sortPrice}`
     );
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://site--test-backend--c7br8w6v87r6.code.run/offers?title=${search}&sort=${
+          `https://site--talented-doll--c7br8w6v87r6.code.run/offers?title=${search}&sort=${
             sortPrice ? "price-desc" : "price-asc"
           }&priceMin=${fetchRangeValues[0]}&priceMax=${fetchRangeValues[1]}`
         );

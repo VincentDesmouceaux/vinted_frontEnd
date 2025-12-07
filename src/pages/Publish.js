@@ -33,7 +33,7 @@ const Publish = ({ token, handleToken }) => {
       formData.append("price", price);
 
       await axios.post(
-        `https://site--test-backend--c7br8w6v87r6.code.run/offer/publish`,
+        `https://site--talented-doll--c7br8w6v87r6.code.run/offer/publish`,
         formData,
         {
           headers: {

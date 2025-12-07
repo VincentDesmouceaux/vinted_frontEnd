@@ -11,7 +11,7 @@ const Offer = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        "https://site--test-backend--c7br8w6v87r6.code.run/offer/" + id
+        "https://site--talented-doll--c7br8w6v87r6.code.run/offer/" + id
       );
       setData(response.data);
       setIsLoading(false);
