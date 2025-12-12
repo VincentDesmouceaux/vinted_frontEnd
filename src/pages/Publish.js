@@ -1,11 +1,13 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Publish = ({ token, handleToken }) => {
   console.log("PUBLISH TOKEN:", token);
 
   const [picture, setPicture] = useState("");
+  const [preview, setPreview] = useState(null);
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [brand, setBrand] = useState("");
@@ -17,6 +19,15 @@ const Publish = ({ token, handleToken }) => {
   const [newsletter, setNewsletter] = useState(false);
 
   const navigate = useNavigate();
+
+  // Nettoyage de l'URL de preview quand le composant est démonté
+  useEffect(() => {
+    return () => {
+      if (preview) {
+        URL.revokeObjectURL(preview);
+      }
+    };
+  }, [preview]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -33,7 +44,6 @@ const Publish = ({ token, handleToken }) => {
       formData.append("condition", condition);
       formData.append("city", city);
       formData.append("price", price);
-      // Si un jour tu veux envoyer la case d’échanges :
       // formData.append("exchange", newsletter);
 
       const response = await axios.post(
@@ -60,6 +70,22 @@ const Publish = ({ token, handleToken }) => {
         console.log("PUBLISH NETWORK ERROR:", error.message);
       }
     }
+  };
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+
+    if (!file) return;
+
+    setPicture(file);
+
+    // Détruit l'ancienne URL si elle existe
+    if (preview) {
+      URL.revokeObjectURL(preview);
+    }
+
+    const objectUrl = URL.createObjectURL(file);
+    setPreview(objectUrl);
   };
 
   const handleTitleChange = (event) => {
@@ -103,16 +129,33 @@ const Publish = ({ token, handleToken }) => {
             <div className="dashed-preview-without">
               <div className="input-design-default">
                 <label htmlFor="picture" className="label-file">
-                  <span className="input-sign">+</span>
-                  <span>Ajoute une photo</span>
+                  {preview ? (
+                    <div className="preview-container">
+                      <img
+                        src={preview}
+                        alt="Prévisualisation"
+                        className="preview-image"
+                        style={{
+                          maxWidth: "100%",
+                          maxHeight: "200px",
+                          objectFit: "cover",
+                          borderRadius: "4px",
+                        }}
+                      />
+                    </div>
+                  ) : (
+                    <>
+                      <span className="input-sign">+</span>
+                      <span>Ajoute une photo</span>
+                    </>
+                  )}
                 </label>
                 <input
                   style={{ display: "none" }}
                   type="file"
                   id="picture"
-                  onChange={(event) => {
-                    setPicture(event.target.files[0]);
-                  }}
+                  accept="image/*"
+                  onChange={handleFileChange}
                 />
               </div>
             </div>
