@@ -3,7 +3,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Publish = ({ token, handleToken }) => {
-  console.log(token);
+  console.log("PUBLISH TOKEN:", token);
+
   const [picture, setPicture] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -19,6 +20,7 @@ const Publish = ({ token, handleToken }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     try {
       const formData = new FormData();
 
@@ -31,23 +33,32 @@ const Publish = ({ token, handleToken }) => {
       formData.append("condition", condition);
       formData.append("city", city);
       formData.append("price", price);
+      // Si un jour tu veux envoyer la case d’échanges :
+      // formData.append("exchange", newsletter);
 
-      await axios.post(
-        `https://site--talented-doll--c7br8w6v87r6.code.run/offer/publish`,
+      const response = await axios.post(
+        "https://site--talented-doll--c7br8w6v87r6.code.run/offer/publish",
         formData,
         {
           headers: {
-            authorization: `Bearer ${token}`,
-
+            Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",
           },
         }
       );
 
+      console.log("PUBLISH OK:", response.data);
       navigate("/");
-      // console.log(response.data);
     } catch (error) {
-      console.log(error.response.data);
+      if (error.response) {
+        console.log(
+          "PUBLISH SERVER ERROR:",
+          error.response.status,
+          error.response.data
+        );
+      } else {
+        console.log("PUBLISH NETWORK ERROR:", error.message);
+      }
     }
   };
 
@@ -66,15 +77,19 @@ const Publish = ({ token, handleToken }) => {
   const handlSizelChange = (event) => {
     setSize(event.target.value);
   };
+
   const handleColorChange = (event) => {
     setColor(event.target.value);
   };
+
   const handleConditionrChange = (event) => {
     setCondition(event.target.value);
   };
+
   const handleCityChange = (event) => {
     setCity(event.target.value);
   };
+
   const handlePriceChange = (event) => {
     setPrice(event.target.value);
   };
@@ -102,6 +117,7 @@ const Publish = ({ token, handleToken }) => {
               </div>
             </div>
           </div>
+
           <div className="text-input-section">
             <div className="text-input">
               <h4>Titre</h4>
@@ -125,6 +141,7 @@ const Publish = ({ token, handleToken }) => {
               ></textarea>
             </div>
           </div>
+
           <div className="text-input-section">
             <div className="text-input">
               <h4>Marque</h4>
@@ -173,7 +190,6 @@ const Publish = ({ token, handleToken }) => {
 
             <div className="text-input">
               <h4>Lieu</h4>
-
               <input
                 type="text"
                 name="city"
@@ -184,6 +200,7 @@ const Publish = ({ token, handleToken }) => {
               />
             </div>
           </div>
+
           <div className="text-input-section">
             <div className="text-input">
               <h4>Prix</h4>
@@ -192,7 +209,7 @@ const Publish = ({ token, handleToken }) => {
                   type="text"
                   name="price"
                   placeholder="0,00€"
-                  id="city"
+                  id="price"
                   value={price}
                   onChange={handlePriceChange}
                 />
@@ -211,8 +228,9 @@ const Publish = ({ token, handleToken }) => {
               </div>
             </div>
           </div>
+
           <div className="form-button-div">
-            <button type="submit " className="form-validation">
+            <button type="submit" className="form-validation">
               Ajouter
             </button>
           </div>
